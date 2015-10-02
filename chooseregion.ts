@@ -92,4 +92,23 @@ class MyRegion {
     add(id:string, data:Array<string>) {
         this.items[id] = data;
     }
+
+    /**
+     * 给控件设置相应的值,并给下一级控件生成对象的option对象
+     * @param which 可选的值为province(省),city(市),county(县)
+     * @param value
+     */
+    set(which:string, value:string) {
+        if (which === 'province') {
+            this.userProvince.value = value;
+            var str = '0_' + (this.userProvince.selectedIndex - 1);
+            this.render(1, str);
+        } else if (which === 'city') {
+            this.userCity.value = value;
+            var str = '0_' + (this.userProvince.selectedIndex - 1) + '_' + (this.userCity.selectedIndex - 1);
+            this.render(2, str);
+        } else if (which === 'county') {
+            this.userCounty.value = value;
+        }
+    }
 }
