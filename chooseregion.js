@@ -72,9 +72,9 @@ var MyRegion = (function () {
                         _this.userCounty.appendChild(newOption);
                     });
                 }
-                else {
-                    throw new Error('渲染市、县级市失败');
-                }
+            }
+            else {
+                throw new Error('渲染市、县级市失败');
             }
         }
     };
